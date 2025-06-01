@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Room Layout Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Layout Generator</h1>
+    <form id="layoutForm">
+      <label for="spaceType">What kind of space is this?</label>
+      <input type="text" name="spaceType" id="spaceType" placeholder="e.g. Bedroom" required>
+  
+      <label>Length (ft):</label>
+      <input type="number" step="0.1" name="length" required>
+  
+      <label>Width (ft):</label>
+      <input type="number" step="0.1" name="width" required>
+  
+      <label>Height (ft):</label>
+      <input type="number" step="0.1" name="height" required>
+  
+      <h3>Furniture Catalog</h3>
+      <div id="furnitureList">
+        <div class="furnitureItem">
+          <input type="text" placeholder="Name" class="furnitureName" required>
+          <input type="number" step="0.1" placeholder="Width" class="furnitureWidth" required>
+          <input type="number" step="0.1" placeholder="Length" class="furnitureLength" required>
+          <input type="number" step="0.1" placeholder="Height" class="furnitureHeight" required>
+        </div>
+      </div>
+      <div class="furnitureButtons">
+        <button type="button" onclick="addFurniture()">+ Add Furniture</button>
+      </div>
+      <button type="submit">Generate Layout</button>
+      
+    </form>
+  
+    <div id="layoutResult"></div>
+  </div>  
+
+  <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+</body>
+</html>
