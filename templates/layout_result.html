@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Layout Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .layout-info {
+            margin-bottom: 20px;
+        }
+        .furniture-list {
+            margin-bottom: 20px;
+        }
+        .furniture-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        .button-group {
+            margin-top: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generated Layout</h1>
+    
+    <div class="layout-info">
+        <h2>Room Information</h2>
+        <p>Type: {{ layout_json.space_type }}</p>
+        <p>Dimensions: {{ layout_json.room_size.width }}' × {{ layout_json.room_size.length }}' × {{ layout_json.room_size.height }}'</p>
+    </div>
+
+    <div class="furniture-list">
+        <h2>Furniture Placement</h2>
+        {% for item in layout_json.furniture %}
+        <div class="furniture-item">
+            <h3>{{ item.type }}</h3>
+            <p>Position: ({{ item.position[0] }}, {{ item.position[1] }}, {{ item.position[2] }})</p>
+            <p>Dimensions: {{ item.dimensions.width }}' × {{ item.dimensions.length }}' × {{ item.dimensions.height }}'</p>
+            <p>Rotation: {{ item.rotation[0] }}°, {{ item.rotation[1] }}°, {{ item.rotation[2] }}°</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="button-group">
+        <a href="/download_layout"><button>Download Layout JSON</button></a>
+        <a href="/generate_blender_code"><button>Generate Blender Code</button></a>
+        <a href="/"><button>Generate New Layout</button></a>
+    </div>
+</body>
+</html> 

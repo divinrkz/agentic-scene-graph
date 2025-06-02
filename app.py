@@ -9,25 +9,6 @@ app = Flask(
     static_folder='static',
     template_folder='templates'
 )
-
-# Set your OpenAI API key (better: use environment variable in production)
-openai.api_key = "your-openai-api-key"
-
-# Furniture catalog used in layout generation
-FURNITURE_CATALOG = {
-    "bed": [2.5, 2.0, 1.0],
-    "nightstand": [0.8, 0.8, 0.8],
-    "wardrobe": [1.5, 1.0, 2.2],
-    "sofa": [2.5, 1.2, 1.0],
-    "table": [1.5, 1.2, 1.0],
-    "lamp": [0.7, 0.7, 1.8],
-    "desk": [1.5, 0.8, 1.0],
-    "chair": [0.7, 0.7, 1.2],
-    "bookshelf": [1.0, 0.5, 2.0],
-    "dining_table": [2.0, 1.0, 1.0],
-    "tv_stand": [1.5, 0.6, 0.8]
-}
-
 # Home page
 @app.route('/')
 def home():
@@ -102,6 +83,5 @@ def generate_blender_code():
 
     return render_template("blender_result.html", blender_code=blender_code)
 
-# Run locally
 if __name__ == '__main__':
     app.run(debug=True, port=5500)

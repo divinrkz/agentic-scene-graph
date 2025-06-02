@@ -13,9 +13,11 @@ function addFurniture() {
     item.className = "furnitureItem";
     item.innerHTML = `
       <input type="text" placeholder="Name" class="furnitureName" required>
+      <div class="dimensions">
       <input type="number" step="0.1" placeholder="Width" class="furnitureWidth" required>
       <input type="number" step="0.1" placeholder="Length" class="furnitureLength" required>
       <input type="number" step="0.1" placeholder="Height" class="furnitureHeight" required>
+      </div>
       <button type="button" class="removeFurnitureBtn">Remove</button>
     `;
     item.querySelector('.removeFurnitureBtn').onclick = () => {
