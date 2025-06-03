@@ -57,59 +57,129 @@ wall.name = 'wall4'
 wall.scale = (0.1, 0.0, 1.5)
 
 # -------------------------------------------------- Furniture
-# bed  (bed)
-bpy.ops.mesh.primitive_cube_add(location=(1.00, 0.00, 0.25))
+# desk1  (desk)
+bpy.ops.mesh.primitive_cube_add(location=(1.00, 0.00, 0.38))
 obj = bpy.context.active_object
-obj.name = 'bed'
-obj.scale = (1.00, 0.50, 0.25)
+obj.name = 'desk1'
+obj.scale = (0.40, 0.30, 0.38)
 obj.rotation_euler = (0, 0, 0)
 
-# desk  (desk)
-bpy.ops.mesh.primitive_cube_add(location=(2.50, 0.00, 0.35))
+# chair1  (seat)
+bpy.ops.mesh.primitive_cube_add(location=(1.00, 0.00, 0.40))
 obj = bpy.context.active_object
-obj.name = 'desk'
-obj.scale = (0.75, 0.30, 0.35)
-obj.rotation_euler = (0, 0, 0)
+obj.name = 'chair1'
+obj.scale = (0.25, 0.25, 0.40)
+obj.rotation_euler = (0, 180, 0)
 
-# lamp  (lamp)
-bpy.ops.mesh.primitive_cylinder_add(location=(2.80, 0.00, 0.25))
+# lamp1  (lamp)
+bpy.ops.mesh.primitive_cylinder_add(location=(1.35, 0.75, 0.25))
 obj = bpy.context.active_object
-obj.name = 'lamp'
+obj.name = 'lamp1'
 obj.scale = (0.10, 0.10, 0.25)
 obj.rotation_euler = (0, 0, 0)
 
-# -------------------------------------------------- Materials
-mat = bpy.data.materials.new(name='plaster_wall')
-mat.use_nodes = True
-bsdf = mat.node_tree.nodes['Principled BSDF']
-bsdf.inputs['Base Color'].default_value = (1.000, 1.000, 1.000, 1.0)
-bsdf.inputs['Roughness'].default_value = 0.6
+# bookshelf1  (storage)
+bpy.ops.mesh.primitive_cube_add(location=(2.40, 0.00, 0.90))
+obj = bpy.context.active_object
+obj.name = 'bookshelf1'
+obj.scale = (0.40, 0.20, 0.90)
+obj.rotation_euler = (0, 0, 0)
 
-mat = bpy.data.materials.new(name='carpet')
+# sofa1  (seat)
+bpy.ops.mesh.primitive_cube_add(location=(3.00, 0.00, 0.42))
+obj = bpy.context.active_object
+obj.name = 'sofa1'
+obj.scale = (0.90, 0.38, 0.42)
+obj.rotation_euler = (0, 270, 0)
+
+# desk2  (desk)
+bpy.ops.mesh.primitive_cube_add(location=(0.50, 0.00, 0.38))
+obj = bpy.context.active_object
+obj.name = 'desk2'
+obj.scale = (0.40, 0.30, 0.38)
+obj.rotation_euler = (0, 0, 0)
+
+# chair2  (seat)
+bpy.ops.mesh.primitive_cube_add(location=(0.50, 0.00, 0.40))
+obj = bpy.context.active_object
+obj.name = 'chair2'
+obj.scale = (0.25, 0.25, 0.40)
+obj.rotation_euler = (0, 180, 0)
+
+# lamp2  (lamp)
+bpy.ops.mesh.primitive_cylinder_add(location=(0.35, 0.75, 0.25))
+obj = bpy.context.active_object
+obj.name = 'lamp2'
+obj.scale = (0.10, 0.10, 0.25)
+obj.rotation_euler = (0, 0, 0)
+
+# bookshelf2  (storage)
+bpy.ops.mesh.primitive_cube_add(location=(0.50, 0.00, 0.90))
+obj = bpy.context.active_object
+obj.name = 'bookshelf2'
+obj.scale = (0.40, 0.20, 0.90)
+obj.rotation_euler = (0, 0, 0)
+
+# desk3  (desk)
+bpy.ops.mesh.primitive_cube_add(location=(3.50, 0.00, 0.38))
+obj = bpy.context.active_object
+obj.name = 'desk3'
+obj.scale = (0.40, 0.30, 0.38)
+obj.rotation_euler = (0, 0, 0)
+
+# chair3  (seat)
+bpy.ops.mesh.primitive_cube_add(location=(3.50, 0.00, 0.40))
+obj = bpy.context.active_object
+obj.name = 'chair3'
+obj.scale = (0.25, 0.25, 0.40)
+obj.rotation_euler = (0, 180, 0)
+
+# lamp3  (lamp)
+bpy.ops.mesh.primitive_cylinder_add(location=(3.35, 0.75, 0.25))
+obj = bpy.context.active_object
+obj.name = 'lamp3'
+obj.scale = (0.10, 0.10, 0.25)
+obj.rotation_euler = (0, 0, 0)
+
+# bookshelf3  (storage)
+bpy.ops.mesh.primitive_cube_add(location=(3.50, 0.00, 0.90))
+obj = bpy.context.active_object
+obj.name = 'bookshelf3'
+obj.scale = (0.40, 0.20, 0.90)
+obj.rotation_euler = (0, 0, 0)
+
+# -------------------------------------------------- Materials
+mat = bpy.data.materials.new(name='floor_material')
 mat.use_nodes = True
 bsdf = mat.node_tree.nodes['Principled BSDF']
 bsdf.inputs['Base Color'].default_value = (0.471, 0.471, 0.471, 1.0)
 bsdf.inputs['Roughness'].default_value = 0.8
 
+mat = bpy.data.materials.new(name='wall_material')
+mat.use_nodes = True
+bsdf = mat.node_tree.nodes['Principled BSDF']
+bsdf.inputs['Base Color'].default_value = (0.902, 0.902, 0.902, 1.0)
+bsdf.inputs['Roughness'].default_value = 0.3
+
 floor = bpy.data.objects.get('Floor')
-if floor and 'carpet' in bpy.data.materials:
-    floor.data.materials.append(bpy.data.materials['carpet'])
+if floor and 'floor_material' in bpy.data.materials:
+    floor.data.materials.append(bpy.data.materials['floor_material'])
 
 w = bpy.data.objects.get('wall1')
-if w and 'plaster_wall' in bpy.data.materials:
-    w.data.materials.append(bpy.data.materials['plaster_wall'])
+if w and 'wall_material' in bpy.data.materials:
+    w.data.materials.append(bpy.data.materials['wall_material'])
 
 w = bpy.data.objects.get('wall2')
-if w and 'plaster_wall' in bpy.data.materials:
-    w.data.materials.append(bpy.data.materials['plaster_wall'])
+if w and 'wall_material' in bpy.data.materials:
+    w.data.materials.append(bpy.data.materials['wall_material'])
 
 w = bpy.data.objects.get('wall3')
-if w and 'plaster_wall' in bpy.data.materials:
-    w.data.materials.append(bpy.data.materials['plaster_wall'])
+if w and 'wall_material' in bpy.data.materials:
+    w.data.materials.append(bpy.data.materials['wall_material'])
 
 w = bpy.data.objects.get('wall4')
-if w and 'plaster_wall' in bpy.data.materials:
-    w.data.materials.append(bpy.data.materials['plaster_wall'])
+if w and 'wall_material' in bpy.data.materials:
+    w.data.materials.append(bpy.data.materials['wall_material'])
 
 # -------------------------------------------------- Save & Render
 import os
