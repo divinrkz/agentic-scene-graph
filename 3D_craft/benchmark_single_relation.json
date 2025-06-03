@@ -1,0 +1,17 @@
+[
+  {
+    "image": "https://res.cloudinary.com/cld-store/image/upload/v1748919321/blender_renders/scene_1748919320.png",
+    "layout": "{\"metadata\": {\"projectId\": \"bedroom_001\", \"roomType\": \"bedroom\", \"units\": \"meters\", \"axes\": {\"right\": \"X\", \"forward\": \"Y\", \"up\": \"Z\"}}, \"room\": {\"dims\": {\"w\": 4, \"d\": 2, \"h\": 3}, \"walls\": [{\"id\": \"wall1\", \"start\": [0, 0, 0], \"end\": [4, 0, 0], \"thickness\": 0.2, \"mat\": \"mat_wall\", \"mesh\": null}, {\"id\": \"wall2\", \"start\": [4, 0, 0], \"end\": [4, 2, 0], \"thickness\": 0.2, \"mat\": \"mat_wall\", \"mesh\": null}, {\"id\": \"wall3\", \"start\": [4, 2, 0], \"end\": [0, 2, 0], \"thickness\": 0.2, \"mat\": \"mat_wall\", \"mesh\": null}, {\"id\": \"wall4\", \"start\": [0, 2, 0], \"end\": [0, 0, 0], \"thickness\": 0.2, \"mat\": \"mat_wall\", \"mesh\": null}], \"floorMat\": \"mat_floor\"}, \"furniture\": [{\"id\": \"bed\", \"catalogId\": \"bed_001\", \"category\": \"bed\", \"dims\": {\"w\": 1.9, \"d\": 0.9, \"h\": 0.6}, \"xform\": {\"pos\": [0.9, 0.5, 0], \"rot\": [0, 0, 0], \"scale\": [1, 1, 1]}, \"mesh\": null, \"matOverride\": null, \"tags\": [\"bed\"]}, {\"id\": \"desk\", \"catalogId\": \"desk_001\", \"category\": \"desk\", \"dims\": {\"w\": 1.2, \"d\": 0.6, \"h\": 0.75}, \"xform\": {\"pos\": [3, 1.3, 0], \"rot\": [0, 0, 0], \"scale\": [1, 1, 1]}, \"mesh\": null, \"matOverride\": null, \"tags\": [\"desk\"]}, {\"id\": \"lamp\", \"catalogId\": \"lamp_001\", \"category\": \"lamp\", \"dims\": {\"w\": 0.2, \"d\": 0.2, \"h\": 0.5}, \"xform\": {\"pos\": [3.6, 1.6, 0.75], \"rot\": [0, 0, 0], \"scale\": [1, 1, 1]}, \"mesh\": null, \"matOverride\": null, \"tags\": [\"lamp\"]}], \"constraints\": [{\"id\": \"offset_bed_wall1\", \"type\": \"offset\", \"targets\": [\"bed\"], \"axis\": \"X\", \"distance\": 0.5, \"relativeTo\": \"wall1\"}, {\"id\": \"align_bed_desk\", \"type\": \"align\", \"targets\": [\"bed\", \"desk\"], \"axis\": \"Z\", \"distance\": 0, \"relativeTo\": \"floor\"}, {\"id\": \"offset_lamp_desk\", \"type\": \"offset\", \"targets\": [\"lamp\"], \"axis\": \"Z\", \"distance\": 0.75, \"relativeTo\": \"desk\"}], \"materials\": [{\"id\": \"mat_wall\", \"color\": [0.9, 0.9, 0.9], \"tex\": null, \"roughness\": 0.8, \"scaleUV\": [1, 1]}, {\"id\": \"mat_floor\", \"color\": [0.6, 0.6, 0.6], \"tex\": null, \"roughness\": 0.8, \"scaleUV\": [1, 1]}]}",
+    "category": "single-relation",
+    "q_and_a": [
+      {
+        "question": "1. Is the bed to the left of the desk?  ",
+        "answer": "No. The bed sits to the right of the desk."
+      },
+      {
+        "question": "2. Is the lamp in front of the desk?",
+        "answer": "No. The lamp is sitting on top of the desk, not out in front of it."
+      }
+    ]
+  }
+]
