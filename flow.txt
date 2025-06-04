@@ -1,0 +1,29 @@
+  ┌────────────┐   prompt / task description
+  │  USER      │
+  └────┬───────┘
+       ▼
+  ┌────────────┐   (1) reasoning + scene-graph JSON
+  │  LLM AGENT │────────┐
+  └────┬───────┘        │
+       ▼                │ self-repair loop
+  ┌────────────┐   (2) constraint solver → absolute coords
+  │  SOLVER    │<───────┘
+  └────┬───────┘
+       ▼
+  ┌────────────┐   (3) Python ↑bpy code
+  │  CODEGEN   │
+  └────┬───────┘
+       ▼
+  ┌────────────┐   (4) render
+  │  BLENDER   │
+  └────┬───────┘
+       ▼
+  ┌────────────┐   (5) VLM verifier  (GPT-4V / BLIP-3D)
+  │  V-L MODEL │
+  └────────────┘
+
+1. Constraint Solving.
+2. python code generation.
+3. render.
+4. VLM Verifier.
+5. Whole Process.
